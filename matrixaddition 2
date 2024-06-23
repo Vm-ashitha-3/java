@@ -1,0 +1,75 @@
+import java.util.Scanner;
+
+// Define a class named MatrixAdd
+class MatrixAdd {
+    // Main method, entry point of the program
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the console
+        Scanner scanner = new Scanner(System.in);
+
+        // Input for matrix 1
+        System.out.println("Enter the number of rows for matrix 1: ");
+        int rows1 = scanner.nextInt(); // Read the number of rows for matrix 1
+        System.out.println("Enter the number of columns for matrix 1: ");
+        int cols1 = scanner.nextInt(); // Read the number of columns for matrix 1
+
+        // Print the dimensions of matrix 1 to standard error stream
+        System.err.println(rows1 + " " + cols1);
+
+        // Create a 2D array (matrix) Matrix1 with dimensions rows1 x cols1
+        int[][] Matrix1 = new int[rows1][cols1];
+
+        // Prompt user to enter elements of matrix 1
+        System.out.println("Enter the elements of matrix 1:");
+        // Nested loops to read elements for matrix 1 from user input
+        for (int i = 0; i < rows1; i++) {
+            for (int j = 0; j < cols1; j++) {
+                Matrix1[i][j] = scanner.nextInt(); // Read and store each element in Matrix1
+            }
+        }
+
+        // Input for matrix 2
+        System.out.println("Enter the number of rows for matrix 2: ");
+        int rows2 = scanner.nextInt(); // Read the number of rows for matrix 2
+        System.out.println("Enter the number of columns for matrix 2: ");
+        int cols2 = scanner.nextInt(); // Read the number of columns for matrix 2
+
+        // Create a 2D array (matrix) Matrix2 with dimensions rows2 x cols2
+        int[][] Matrix2 = new int[rows2][cols2];
+
+        // Prompt user to enter elements of matrix 2
+        System.out.println("Enter the elements of matrix 2:");
+        // Nested loops to read elements for matrix 2 from user input
+        for (int i = 0; i < rows2; i++) {
+            for (int j = 0; j < cols2; j++) {
+                Matrix2[i][j] = scanner.nextInt(); // Read and store each element in Matrix2
+            }
+        }
+
+        // Check if matrices can be added (must have same dimensions)
+        if (rows1 != rows2 || cols1 != cols2) {
+            System.out.println("Matrices cannot be added: Dimensions are different.");
+        } else {
+            // Adding matrices
+            int[][] Matrix3 = new int[rows1][cols1]; // Create a result matrix Matrix3
+            // Nested loops to add corresponding elements of Matrix1 and Matrix2
+            for (int i = 0; i < rows1; i++) {
+                for (int j = 0; j < cols1; j++) {
+                    Matrix3[i][j] = Matrix1[i][j] + Matrix2[i][j]; // Perform addition
+                }
+            }
+
+            // Print the resultant matrix Matrix3 after addition
+            System.out.println("Resultant matrix after addition:");
+            for (int i = 0; i < rows1; i++) {
+                for (int j = 0; j < cols1; j++) {
+                    System.out.print(Matrix3[i][j] + " "); // Print each element of Matrix3
+                }
+                System.out.println(); // Move to the next line after each row
+            }
+        }
+
+        // Close the Scanner object to free up resources
+        scanner.close();
+    }
+}
