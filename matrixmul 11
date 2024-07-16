@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+class Matrixmul {
+    int row;               // Number of rows in the matrix
+    int column;           // Number of columns in the matrix
+    int[][] array = new int[10][10];  // 2D array to store matrix elements (initially set to 10x10)
+
+                                // Method to input matrix elements from user
+    public void getmatrix() {
+        int rc, cc;                   // Loop counters for rows and columns
+        Scanner sc = new Scanner(System.in);     // Scanner object to read input
+        System.out.println("Enter size of matrix, row count:");
+        this.row = sc.nextInt();                  // Read number of rows
+        System.out.println("Enter size of matrix, column count:");
+        this.column = sc.nextInt();               // Read number of columns
+        System.out.println("Enter matrix elements:");
+        for (rc = 0; rc < this.row; rc++) {         // Loop through each row
+            for (cc = 0; cc < this.column; cc++) {  // Loop through each column
+                this.array[rc][cc] = sc.nextInt();  // Read and store matrix element
+            }
+        }
+    }
+
+                                                   // Method to perform matrix multiplication
+    public static Matrixmul sum(Matrixmul m1, Matrixmul m2) {
+        int rc, cc;                                  // Loop counters for rows and columns
+        Matrixmul temp = new Matrixmul();             // Create a new Matrixmul object to store the result
+
+        if (m1.column == m2.row) {                             // Check if matrix multiplication is possible
+            temp.row = m1.row;                                   // Set number of rows for the resulting matrix
+            temp.column = m2.column;                             // Set number of columns for the resulting matrix
+
+            for (rc = 0; rc < m1.row; rc++) {                  // Loop through rows of the first matrix
+                for (cc = 0; cc < m2.column; cc++) {            // Loop through columns of the second matrix
+                    for (int k = 0; k < m1.column; k++) {           // Loop through elements to compute dot product
+Matrixmul.java [unix] (16:52 16/07/2024)                                    1,25 Top
+
