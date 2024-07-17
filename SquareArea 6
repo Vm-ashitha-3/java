@@ -1,0 +1,51 @@
+import java.util.Scanner;
+class Rectangle{
+    double length;
+    double breadth;
+
+    double getLength(){
+    return length;
+    }
+
+double getBreadth(){
+return breadth;
+}
+
+void setLength(double length){
+    this.length = length;
+}
+
+void setBreadth(double breadth){
+    this.breadth = breadth;
+}
+
+double getArea(){
+    return length * breadth;
+}
+
+double getPerimeter(){
+    return 2 * (length + breadth);
+}
+}
+class SquareArea{
+    public static void main(String[]args){
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("enter sides of square:");
+        double sideLength = scanner.nextDouble();
+
+        System.out.println("enter the breadth of rectangle");
+        double breadth = scanner.nextDouble();
+        double length = sideLength / breadth;
+
+        Rectangle rect = new Rectangle();
+        rect.setLength(length);
+        rect.setBreadth(breadth);
+
+        System.out.println("area of rectangle is:"+rect.getArea());
+        System.out.println("perimeeter of rectangle is:"+rect.getPerimeter());
+
+       scanner.close();
+    }
+                           
+
