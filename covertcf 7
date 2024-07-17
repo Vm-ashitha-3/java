@@ -1,0 +1,54 @@
+import java.util.Scanner;
+class Celsius{
+        double c;
+
+        Celsius(double c){
+                this.c = c;
+        }
+        double celsiusToFahrenhit(){
+        double f=(9.0/5.0)*this.c + 32;
+                return f;
+        }}
+class Fahrenhit{
+        double f;
+        Fahrenhit(double f){
+                this.f=f;
+        }
+        double fahrenhitToCelsius(){
+        double c = (this.f-32)*(5.0/9.0);
+                return c;
+        }}
+public class Convertcf{
+        public static void main(String[]args){
+                int choice;
+                Scanner input=new Scanner(System.in);
+                do{
+                        System.out.println("enter choice:");
+                        System.out.println("1 - celsius to fahrenhit");
+                        System.out.println("2 - fahrenhit to celsius");
+                        System.out.println("3 - exit");
+                        choice=input.nextInt();
+                        switch(choice){
+                                case 1:
+                                        System.out.println("enter celsius:");
+                                        double a = input.nextDouble();
+                                        Celsius c = new Celsius(a);
+                                        double f = c.celsiusToFahrenhit();
+                                        System.out.println("Fahrenhit" + f);
+                                        break;
+                                case 2:
+                                        System.out.println("enter fahrenhit:");
+                                        double b = input.nextDouble();
+                                        Fahrenhit d = new Fahrenhit(b);
+                                        double g =d.fahrenhitToCelsius();
+                                        System.out.println("Celsius:" + g);
+                                        break;
+                                  case 3:
+                                        System.out.println("exit");
+                                        break;
+                                default:
+                                        System.out.println("enter valid choice");
+                        }
+                }
+                while(choice != 3);
+        }}
